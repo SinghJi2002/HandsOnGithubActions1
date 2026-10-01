@@ -1,0 +1,14 @@
+name: ReactOnIssueRaise
+on: 
+  issues: [opened]
+
+jobs:
+  HandleIssuesJob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Transfer Repo to VM
+        uses: actions/checkout@v6.0.1
+      - name: Echo the Issues Data
+        run: |
+          echo "You info relation to Issue is"
+          echo "(${{toJSON(github.event.issue)}})"
