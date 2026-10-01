@@ -5,7 +5,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Transfer Repo To VM
-        uses: actions/checkout@v6.1.0 
+        uses: actions/checkout@v6.1.0
+      - name: Installing Node Dependencies
+        run: npm ci
       - name: Run The Lint Command
         run: npm run lint
   
@@ -15,6 +17,8 @@ jobs:
     steps:
       - name: Transfer Repo To VM
         uses: actions/checkout@v6.1.0
+      - name: Installing Node Dependencies
+        run: npm ci
       - name: Run The Test Command
         run: npm run test  
   
@@ -24,5 +28,7 @@ jobs:
     steps: 
       - name: Transfer Repo To VM
         uses: actions/checkout@v6.1.0
+      - name: Installing Node Dependencies
+        run: npm ci
       - name: Run the Build Command
         run: npm run build
